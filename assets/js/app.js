@@ -17,4 +17,12 @@ class App extends Component {
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const App2 = () => {
+	return (
+		<div className="container">
+			<h1>Justin</h1>
+		</div>
+	);
+};
+
+ReactDOM.render(<App2 />, document.getElementById('app'));
