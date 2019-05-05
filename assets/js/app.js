@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+const users = ['Patr', 'Joe', 'Parker', 'Cindy'];
+
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: 'Patrick'
+			name: 'Patrick',
+			age: 33
 		};
 	}
+	loopUsers = () => {
+		return users.map((user, index) => {
+			return <div key={index}>{user}</div>;
+		});
+	};
+	showNotification = () => {
+		if (this.state.age > 18) {
+			return 'You can get in the club cuz ur legal';
+		} else {
+			return `You can't get in the club cuz ur not legal`;
+		}
+	};
 	render() {
 		return (
-			<div className="container">
+			<div className={`container ${this.state.age > 18 ? 'active' : ''}`}>
 				<Header1>
-					<b>Jodfe</b>
+					<b>{this.showNotification()}</b>
 				</Header1>
+				{this.loopUsers()}
 
 				<Footer
 					name="Bill "
