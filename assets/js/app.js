@@ -11,53 +11,21 @@ class App extends Component {
 			age: 33
 		};
 	}
-	loopUsers = () => {
-		return users.map((user, index) => {
-			return <div key={index}>{user}</div>;
-		});
-	};
-	showNotification = () => {
-		if (this.state.age > 18) {
-			return 'You can get in the club cuz ur legal';
-		} else {
-			return `You can't get in the club cuz ur not legal`;
-		}
+
+	printName = (name, age) => {
+		console.log(`${name} is ${age} years old`);
 	};
 	render() {
-		return (
-			<div className={`container ${this.state.age > 18 ? 'active' : ''}`}>
-				<Header1>
-					<b>{this.showNotification()}</b>
-				</Header1>
-				{this.loopUsers()}
-
-				<Footer
-					name="Bill "
-					age={22}
-					printName={() => console.log('hello my name is Bill')}
-				/>
-			</div>
-		);
-	}
-}
-
-const Header1 = props => {
-	return <h1>{props.children}</h1>;
-};
-
-class Footer extends Component {
-	constructor() {
-		super();
-		this.state = {
-			name: 'Patrick'
+		const printName = (name, age) => {
+			console.log(`${name} is ${age} yearss old`);
 		};
-	}
-	render() {
 		return (
-			<footer onClick={this.props.printName}>
-				Name: {this.props.name}
-				age: {this.props.age}
-			</footer>
+			<div className={'container'}>
+				app
+				<div className="button" onDoubleClick={printName.bind(null, 'Joe', 31)}>
+					click me
+				</div>
+			</div>
 		);
 	}
 }
